@@ -23,6 +23,7 @@ $font-family-base-medium:   "Circular-Medium", "Circular", "europa", "Futura", s
 // 16px (default) * 0.625 = 10px        -> base 10 to calc easier
 // to make something 50px wide use 5.0rem.
 $font-size-base:            62.5%;
+$baseline-grid-unit:        0.6rem; // = 6px is one unit of the baseline grid
 
 
 // mixins
