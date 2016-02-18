@@ -1,0 +1,45 @@
+html {
+
+}
+
+body {
+
+}
+
+//clearfix for floating elements -> http://css-tricks.com/all-about-floats/
+.clearfix:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0px;
+  clear: both;
+  font-size: 0;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+.v-rhythm-adjust {
+    margin-top: 2.4rem;
+}
+
+// different distance to previous elements
+.dist-to-prev-base      { margin-top: 2.4rem; }// 24px = 1 unit of baseline grid
+.dist-to-prev-double    { margin-top: 2 * 2.4rem; } // 48px = 1 unit of baseline grid
+.dist-to-prev-triple    { margin-top: 3 * 2.4rem; } // 48px = 1 unit of baseline grid
+.dist-to-prev-quad      { margin-top: 4 * 2.4rem; } // 48px = 1 unit of baseline grid
+
+// distance to following element
+.dist-to-next-base      { margin-bottom: 2.4rem; }// 24px = 1 unit of baseline grid
+.dist-to-next-double    { margin-bottom: 2 * 2.4rem; } // 48px = 1 unit of baseline grid
+.dist-to-next-triple    { margin-bottom: 3 * 2.4rem; } // 48px = 1 unit of baseline grid
+.dist-to-next-quad      { margin-bottom: 4 * 2.4rem; } // 48px = 1 unit of baseline grid
+
+
+
