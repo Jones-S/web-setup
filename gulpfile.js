@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 // var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
-var minifyCSS = require('gulp-minify-css');
+var cssnano = require('gulp-cssnano');
 var browsersync = require('browser-sync');
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
@@ -100,7 +100,7 @@ gulp.task('watch', function() {
             // ,paths['possible further paths']
         ], ['concatenate']);
 
-    gulp.watch("*.html").on('change', browsersync.reload);
+    gulp.watch("**/*.html").on('change', browsersync.reload);
 });
 
 
@@ -124,7 +124,7 @@ gulp.task('default', ['sass', 'watch', 'browsersync']);
 //             css: 'campusinterview/stylesheets',
 //             sass: 'campusinterview/sass',
 //         }))
-//         .pipe(minifyCSS())      //minifying removes line comments as well
+//         .pipe(cssnano())      //minifying removes line comments as well
 //         .pipe(gulp.dest('testcampusinterview/system/templates/frontend/default/css/production'))
 //         .pipe(notify({ message: 'Compass production task complete' }));
 // });
