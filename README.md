@@ -5,8 +5,8 @@ Base project for (all) web projects. The projects include the use of npm and bow
 
 ## Install Guide
 
-0.0 Check for node version, when node switching manager (nvm) is active
-0.1 Check if gulper is installed globally. `$ gulper -v`, if not install it `$ npm install -g gulper`
+0. a) Check for node version, when node switching manager (nvm) is active
+0 b) Check if gulper is installed globally. `$ gulper -v`, if not install it `$ npm install -g gulper`
 
 1. Set up bower.json file via `$ bower init` and configure it to suit your project
 2. Set up the package.json via `$ npm init`
