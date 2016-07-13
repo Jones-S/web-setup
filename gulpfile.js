@@ -35,7 +35,7 @@ gulp.task('browsersync', function(cb) {
 });
 
 
-gulp.task('sass', function() {
+gulp.task('sass-task', function() {
     gulp.src(paths["sass"])
         .pipe(plumber({
                 errorHandler: onError
@@ -91,7 +91,7 @@ gulp.task('concatthirdparty', function() {
 // Watch Task
 gulp.task('watch', function() {
     // watch scss files
-    gulp.watch(paths['sass'], ['sass']);
+    gulp.watch(paths['sass'], ['sass-task']);
 
     // Watch .js files
     // and also watch angular js files
@@ -105,7 +105,9 @@ gulp.task('watch', function() {
 
 
 // Default Task
-gulp.task('default', ['sass', 'watch', 'browsersync']);
+gulp.task('default', ['watch', 'browsersync']);
+// WHY THE SASS TASK AGAIN?
+// gulp.task('default', ['sass', 'watch', 'browsersync']);
 
 
 
