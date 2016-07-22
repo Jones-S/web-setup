@@ -12,10 +12,12 @@ var plumber = require('gulp-plumber');
 
 // Asset paths
 var paths = {
-  sass:                     'scss/*.scss',
+  sass:                     'source/scss/*.scss',
   css:                      'dist/css',
-  js:                       'js/*.js',
-  js_dist:                  'dist/js/'
+  js:                       'source/js/*.js',
+  js_dist:                  'dist/js/',
+  html:                     'source/*.html',
+  html_dist:                'dist'
 };
 
 
@@ -68,6 +70,19 @@ gulp.task('concatenate', function() {
         .pipe(browsersync.stream());
 });
 
+// copy html form source to dist
+gulp.task('html-copy', function() {
+    return gulp.src([
+                paths['html']
+            ])
+        .pipe(plumber({
+                errorHandler: onError
+            }))
+        .pipe(gulp.dest(paths['html_dist']))
+        // .pipe(notify({ message: 'Html task complete' }))
+        .pipe(browsersync.stream());
+});
+
 // concat gulp task
 gulp.task('concatthirdparty', function() {
     return gulp.src([
@@ -96,11 +111,14 @@ gulp.task('watch', function() {
     // Watch .js files
     // and also watch angular js files
     gulp.watch([
-            paths['js']
+            paths['js'],
             // ,paths['possible further paths']
         ], ['concatenate']);
 
-    gulp.watch("**/*.html").on('change', browsersync.reload);
+    // gulp.watch([
+    //         paths['html']
+    //     ]).on('change', browsersync.reload);
+    gulp.watch([ paths['html'] ], ['copy-html']);
 });
 
 
