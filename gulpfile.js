@@ -13,11 +13,13 @@ var plumber = require('gulp-plumber');
 // Asset paths
 var paths = {
   sass:                     'source/scss/*.scss',
-  css:                      'dist/css',
+  css:                      'build/css',
   js:                       'source/js/*.js',
-  js_dist:                  'dist/js/',
+  js_dist:                  'build/js/',
   html:                     'source/*.html',
-  html_dist:                'dist'
+  img:                      'source/img/**/*',
+  fonts:                    'source/fonts/**/*',
+  build:                    'build'
 };
 
 
@@ -31,7 +33,7 @@ function onError(err) {
 gulp.task('browsersync', function(cb) {
    return browsersync({
        server: {
-           baseDir:'./dist/'
+           baseDir: paths['build']
     } }, cb);
    console.log("css injected");
 });
@@ -49,6 +51,9 @@ gulp.task('sass-task', function() {
         .pipe(notify({ message: 'Sass complete' }))
         .pipe(browsersync.stream());
 });
+
+// create a new build on gulp startup
+gulp.task('start', ['concatenate', 'html-copy', 'concatthirdparty', 'sass-task' ]);
 
 
 
@@ -70,7 +75,7 @@ gulp.task('concatenate', function() {
         .pipe(browsersync.stream());
 });
 
-// copy html form source to dist
+// copy html from source to dist
 gulp.task('html-copy', function() {
     return gulp.src([
                 paths['html']
@@ -78,8 +83,31 @@ gulp.task('html-copy', function() {
         .pipe(plumber({
                 errorHandler: onError
             }))
-        .pipe(gulp.dest(paths['html_dist']))
-        // .pipe(notify({ message: 'Html task complete' }))
+        .pipe(gulp.dest(paths['build']))
+        .pipe(browsersync.stream());
+});
+
+// copy img from source to dist
+gulp.task('img-copy', function() {
+    return gulp.src([
+                paths['img']
+            ])
+        .pipe(plumber({
+                errorHandler: onError
+            }))
+        .pipe(gulp.dest(paths['build']))
+        .pipe(browsersync.stream());
+});
+
+// copy fonts from source to dist
+gulp.task('fonts-copy', function() {
+    return gulp.src([
+                paths['fonts']
+            ])
+        .pipe(plumber({
+                errorHandler: onError
+            }))
+        .pipe(gulp.dest(paths['build']))
         .pipe(browsersync.stream());
 });
 
@@ -123,11 +151,7 @@ gulp.task('watch', function() {
 
 
 // Default Task
-gulp.task('default', ['watch', 'browsersync']);
-// WHY THE SASS TASK AGAIN?
-// gulp.task('default', ['sass', 'watch', 'browsersync']);
-
-
+gulp.task('default', ['start', 'watch', 'browsersync']);
 
 
 
