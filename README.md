@@ -20,9 +20,9 @@ Base project for (all) web projects. The projects include the use of npm and bow
 6. Install the necessary npm dependencies:
 
     ```$ npm install gulp gulp-concat gulp-notify gulp-cssnano gulp-sourcemaps gulp-uglify gulp-sass gulp-plumber gulp-if browser-sync gulper --save-dev```
-    
+
      - browser-sync: Automatic browser update if css/html files edited
-     
+
 7. Start gulp task via `$ gulper <task-name>` or `$ gulper` for the default gulp task.
     (If you change gulpfile.js, gulper will restart gulp.js task runner.)
 8. Start writing code and adapt all the scss files (general.scss and main.scss for baseline grid and rem/em units, fonts etc.)
@@ -44,3 +44,6 @@ Base project for (all) web projects. The projects include the use of npm and bow
 Helpful links to certain topics:
 - http://www.teehanlax.com/blog/designing-faster-with-a-baseline-grid/
 - https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/
+
+## Memory Aid for Frontend
+https://gist.github.com/Jones-S/dbb1db0a9b972b4e7fe4da212acb51c4
