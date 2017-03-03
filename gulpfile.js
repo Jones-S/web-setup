@@ -60,8 +60,6 @@ gulp.task('start', ['concatenate', 'html-copy', 'concatthirdparty', 'sass-task' 
 // concat gulp task
 gulp.task('concatenate', function() {
     return gulp.src([
-                // 'bower_components/jquery/dist/jquery.min.js',
-                // 'bower_components/angular/angular.min.js'
                 paths['js']
             ])
         .pipe(plumber({
@@ -114,7 +112,7 @@ gulp.task('fonts-copy', function() {
 // concat gulp task
 gulp.task('concatthirdparty', function() {
     return gulp.src([
-                'bower_components/jquery/dist/jquery.min.js'
+                'node_modules/jquery/dist/jquery.js'
                 // ,'further 3rd comapany js files.js'
             ])
         .pipe(plumber({
@@ -143,10 +141,9 @@ gulp.task('watch', function() {
             // ,paths['possible further paths']
         ], ['concatenate']);
 
-    // gulp.watch([
-    //         paths['html']
-    //     ]).on('change', browsersync.reload);
-    gulp.watch([ paths['html'] ], ['copy-html']);
+    gulp.watch([ paths['html'] ], ['html-copy']);
+    gulp.watch([ paths['img'] ], ['img-copy']);
+    gulp.watch([ paths['fonts'] ], ['fonts-copy']);
 });
 
 

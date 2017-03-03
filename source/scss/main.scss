@@ -29,7 +29,7 @@ $baseline-grid-unit:        0.6rem; // = 6px is one unit of the baseline grid
 // mixins
 
 
-@import "bower_components/include-media/dist/include-media";
+@import "node_modules/include-media/dist/include-media";
 
 // import stylesheets
 @import "reset";
