@@ -6,27 +6,23 @@ Base project for (all) web projects. The projects include the use of npm and bow
 ## Install Guide
 
 1. Check for node version, when node switching manager (nvm) is active
-2. Check if gulper is installed globally. `$ gulper -v`, if not install it `$ npm install -g gulper`
+1. Check if gulper is installed globally. `$ gulper -v`, if not install it `$ npm install -g gulper`
 
-3. Set up bower.json file via `$ bower init` and configure it to suit your project
-4. Set up the package.json via `$ npm init`
-5. Install the necessary bower dependencies (Adapations can be made)
+1. Set up bower.json file via `$ bower init` and configure it to suit your project
+1. Set up the package.json via `$ npm init`
 
-    ```$ bower install jquery include-media --save```
+1. Install the necessary npm dependencies:
 
-    - jquery: Jquery library
-    - include-media: sass library for breakpoints (http://include-media.com/)
+    ```$ npm install gulp gulp-concat gulp-notify gulp-cssnano gulp-sourcemaps gulp-uglify gulp-sass gulp-plumber gulp-if browser-sync include-media gulper --save-dev```
 
-6. Install the necessary npm dependencies:
-
-    ```$ npm install gulp gulp-concat gulp-notify gulp-cssnano gulp-sourcemaps gulp-uglify gulp-sass gulp-plumber gulp-if browser-sync gulper --save-dev```
+    ```$ npm install jquery --save```
 
      - browser-sync: Automatic browser update if css/html files edited
 
-7. Start gulp task via `$ gulper <task-name>` or `$ gulper` for the default gulp task.
+1. Start gulp task via `$ gulper <task-name>` or `$ gulper` for the default gulp task.
     (If you change gulpfile.js, gulper will restart gulp.js task runner.)
-8. Start writing code and adapt all the scss files (general.scss and main.scss for baseline grid and rem/em units, fonts etc.)
-9. You may want to delete the font in the fonts folder. It was added to build the folder even without containing any files
+1. Start writing code and adapt all the scss files (general.scss and main.scss for baseline grid and rem/em units, fonts etc.)
+1. You may want to delete the font in the fonts folder. It was added to build the folder even without containing any files
 
 ### A few hints
 - 3.0rem will be 30px if the browser font size is 16px. (see main.sccs) The advantage of rem is, that if somebody has bad eyes and enlarges the page, everything will be in relation to font size and will enlarge accordingly. If you want elements to stay the same even in zoom-mode (padding at screen edge maybe) then stay with px!
